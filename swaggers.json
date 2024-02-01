@@ -1,0 +1,642 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API Drive kar"
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "",
+      "description": "API for Drive Kar"
+    }
+  ],
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "token",
+      "in": "header"
+    }
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/api/User/Create": {
+      "post": {
+        "tags": [
+          "'User'"
+        ],
+        "description": "User Create",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "User Create",
+            "description": "User Create",
+            "schema": {
+              "$ref": "#/definitions/User Create"
+            },
+            "in": "body"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "202": {
+            "description": "No data found"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/User/{userId}/Mobile-Verification/{otpCode}": {
+      "post": {
+        "tags": [
+          "'User'"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "userId",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "otpCode",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "202": {
+            "description": "No data found"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/User/Email-Verification": {
+      "post": {
+        "tags": [
+          "'User'"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "QueryParam<string>",
+            "name": "link",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "202": {
+            "description": "No data found"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/User/{userId}/Re-Sending-Email-Verification": {
+      "post": {
+        "tags": [
+          "'User'"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "userId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "202": {
+            "description": "No data found"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/User/List": {
+      "get": {
+        "tags": [
+          "'User'"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "202": {
+            "description": "No data found"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/User/{userId}": {
+      "get": {
+        "tags": [
+          "'User'"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "userId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "202": {
+            "description": "No data found"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/User/{userId}/Update": {
+      "put": {
+        "tags": [
+          "'User'"
+        ],
+        "description": "User Update",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "userId",
+            "description": "User Update",
+            "schema": {
+              "$ref": "#/definitions/User Update"
+            },
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "User Update",
+            "description": "User Update",
+            "schema": {
+              "$ref": "#/definitions/User Update"
+            },
+            "in": "body"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "202": {
+            "description": "No data found"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/User/{userId}/Delete": {
+      "delete": {
+        "tags": [
+          "'User'"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "userId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "202": {
+            "description": "No data found"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/User/Change-Passowrd": {
+      "put": {
+        "tags": [
+          "'User'"
+        ],
+        "description": "User Change Passowrd",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "User Change Passowrd",
+            "description": "User Change Passowrd",
+            "schema": {
+              "$ref": "#/definitions/User Change Passowrd"
+            },
+            "in": "body"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "202": {
+            "description": "No data found"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/User/{email}/Forgot-Password-Request": {
+      "post": {
+        "tags": [
+          "'User'"
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "email",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "202": {
+            "description": "No data found"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/User/Forgot-Request-Verification": {
+      "post": {
+        "tags": [
+          "'User'"
+        ],
+        "description": "User Forgot Request Verification",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "User Forgot Request Verification",
+            "description": "User Forgot Request Verification",
+            "schema": {
+              "$ref": "#/definitions/User Forgot Request Verification"
+            },
+            "in": "body"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "202": {
+            "description": "No data found"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/User/Forgot-Password": {
+      "put": {
+        "tags": [
+          "'User'"
+        ],
+        "description": "User Forgot Password",
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "User Forgot Password",
+            "description": "User Forgot Password",
+            "schema": {
+              "$ref": "#/definitions/User Forgot Password"
+            },
+            "in": "body"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "202": {
+            "description": "No data found"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User Create": {
+      "required": [
+        "FirstName",
+        "LastName",
+        "Email",
+        "MobileNumber",
+        "CarOwner",
+        "Password"
+      ],
+      "properties": {
+        "FirstName": {
+          "type": "string"
+        },
+        "LastName": {
+          "type": "string"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "MobileNumber": {
+          "type": "string"
+        },
+        "CarOwner": {
+          "type": "boolean"
+        },
+        "Password": {
+          "type": "string"
+        }
+      }
+    },
+    "User Update": {
+      "required": [
+        "FirstName",
+        "LastName",
+        "Email",
+        "MobileNumber",
+        "CarOwner",
+        "Password",
+        "IsEmailVerified",
+        "IsMobileNumberVerified",
+        "PasswordHistory.OldPassword",
+        "ForgotPassword.OtpCode",
+        "ForgotPassword.IsVerified"
+      ],
+      "properties": {
+        "FirstName": {
+          "type": "string"
+        },
+        "LastName": {
+          "type": "string"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "MobileNumber": {
+          "type": "string"
+        },
+        "CarOwner": {
+          "type": "boolean"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "IsEmailVerified": {
+          "type": "boolean"
+        },
+        "IsMobileNumberVerified": {
+          "type": "boolean"
+        },
+        "PasswordHistory": {
+          "type": "object",
+          "properties": {
+            "OldPassword": {
+              "type": "string"
+            }
+          }
+        },
+        "ForgotPassword": {
+          "type": "object",
+          "properties": {
+            "OtpCode": {
+              "type": "string"
+            },
+            "IsVerified": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "User Change Passowrd": {
+      "required": [
+        "UserId",
+        "Password",
+        "RePassword"
+      ],
+      "properties": {
+        "UserId": {
+          "type": "string"
+        },
+        "CurrentPassword": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "RePassword": {
+          "type": "string"
+        }
+      }
+    },
+    "User Forgot Request Verification": {
+      "required": [
+        "UserId",
+        "OtpCode"
+      ],
+      "properties": {
+        "UserId": {
+          "type": "string"
+        },
+        "OtpCode": {
+          "type": "string"
+        }
+      }
+    },
+    "User Forgot Password": {
+      "required": [
+        "UserId",
+        "Password",
+        "RePassword"
+      ],
+      "properties": {
+        "UserId": {
+          "type": "string"
+        },
+        "CurrentPassword": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        },
+        "RePassword": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

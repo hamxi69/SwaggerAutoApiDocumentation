@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swagger UI</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/swagger-ui@5.11.1/dist/swagger-ui.min.css">
+  <link href="https://static1.smartbear.co/swagger/media/assets/swagger_fav.png" type="image/png" rel="shortcut icon">
+  <link href="https://static1.smartbear.co/swagger/media/assets/swagger_fav.png" type="image/png" rel="icon">
+</head>
+<body>
+  <div id="swagger-ui"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/5.11.1/swagger-ui-bundle.js"></script>
+  <script>
+    let ui;
+
+    function initializeSwaggerUI() {
+      ui = SwaggerUIBundle({
+        url: "/swagger",
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+        ],
+        layout: "BaseLayout",
+      });
+    }
+
+    initializeSwaggerUI();
+
+    window.addEventListener('unload', async function (event) {
+      try {
+        await fetch('/stop-project', { method: 'POST' });
+      } catch (error) {
+        console.error('Error stopping the project:', error);
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', function () {
+      initializeSwaggerUI();
+    });
+  </script>
+</body>
+</html>
